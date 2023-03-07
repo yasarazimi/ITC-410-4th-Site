@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], 
+input[type=password], 
+input[type=text], 
+input[type=text], 
+input[type=text], 
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.login{
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+.s {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>Sign up Form</h2>
+
+<form action="/action_page.php" method="post">
+  <div class="imgcontainer">
+    
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" id="y1" placeholder="Enter Username" name="uname" required>
+    <td id="1error"> </td>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" id="y2" placeholder="Enter Password" name="psw" required>
+    <td id="2error"> </td>
+
+    <label for="Name"><b>Name</b></label>
+    <input type="text" id="y3" placeholder="Enter Name" name="Name" required>
+    <td id="3error"> </td>
+
+    <label for="F/name"><b>F/name</b></label>
+    <input type="text" id="y4" placeholder="Enter F/name" name="F/name" required>
+    <td id="4error"> </td>
+
+    <label for="Age"><b>Age</b></label>
+    <input type="text" id="y5" placeholder="Enter Age" name="Age" required>
+    <td id="5error"> </td>
+
+    <label for="Gender"><b>Gender</b></label>
+    <input type="text" id="y6" placeholder="Enter Gender" name="Gender" required>
+    <td id="6error"> </td>
+        
+    <button type="submit" onclick="validation()">Save</button>
+    <button><a href="Login.html">Login</a></button>
+    <button><a href="Login.html">Update</a></button>
+    <button><a href="Login.html">Delete</a></button>
+    <button><a href="Login.html">Read</a></button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form>
+<script>
+  t1 = document.getElementById("y1");
+  t2 = document.getElementById("y2");
+  t3 = document.getElementById("y3");
+  t4 = document.getElementById("y4");
+  t5 = document.getElementById("y5");
+  t6 = document.getElementById("y6");
+  aError = document.getElementById("1error");
+  bError = document.getElementById("2error");
+  cError = document.getElementById("3error");
+  dError = document.getElementById("4error");
+  eError = document.getElementById("5error");
+  fError = document.getElementById("6error");
+  function validation() {
+      exp_name= /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/
+      exp_f_name= /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/
+      exp_user_name= /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/
+      exp_gender= /^male$|^female$/
+      exp_age= /^(1[18]|[55]\d)$/
+      exp_pass = /^(?=.*[a-z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/      
+////////////////////////////////
+      if (t3.value.match(exp_name)) {
+        cError.innerHTML = "You Name is accepted";
+        cError.style.color = "green";
+    } else {
+        cError.innerHTML = "Type another name";
+        cError.style.color = "red";
+    }
+////////////////////////////////
+      if (t4.value.match(exp_f_name)) {
+        dError.innerHTML = "You Number is accepted";
+        dError.style.color = "green";
+      } else {
+        dError.innerHTML = "please Type correct Phone Number";
+        dError.style.color = "red";
+      }
+      ////////////////////////////////
+      if (t1.value.match(exp_user_name)) {
+        aError.innerHTML = "You username is accepted";
+        aError.style.color = "green";
+      } else {
+        aError.innerHTML = "Invalid Username";
+        aError.style.color = "red";
+      }
+      ////////////////////////////////
+      if (t2.value.match(exp_pass)) {
+        bError.innerHTML = "You passwrod is accepted";
+        bError.style.color = "green";
+      } else {
+        bError.innerHTML = "password is not accepted";
+        bError.style.color = "red";
+      }
+////////////////////////////////
+      if (t5.value.match(exp_age)) {
+        eError.innerHTML = "Your age is accepted";
+        eError.style.color = "green";
+      } else {
+        eError.innerHTML = "Age is not accepted";
+        eError.style.color = "red";
+      }
+      ////////////////////////////////
+      if (t6.value.match(exp_gender)) {
+        fError.innerHTML = "Your gender is accepted";
+        fError.style.color = "green";
+      } else {
+        fError.innerHTML = "gender is not accepted";
+        fError.style.color = "red";
+      }}
+
+  </script>
+
+</body>
+</html>
